@@ -1,17 +1,15 @@
 
 //Slectors
-const todoInput = document.querySelector(".todo-input");
-const todoButton = document.querySelector(".add-todo-button");
+const todoInput = document.querySelector(".input-task");
+const todoButton = document.querySelector(".add-task");
 const todoList = document.querySelector(".todo-list");
-// const filterOption = document.querySelector(".filter-todo");
 const RemoveAll = document.querySelector("#RemoveAll");
 const RemoveCompleted = document.querySelector("#RemoveCompleted");
 
 //Event Listeners
 document.addEventListener("DOMContentLoaded", getTodos);
 todoButton.addEventListener("click", addTodo);
-todoList.addEventListener("click", DeleteCheck);
-// filterOption.addEventListener("click", filterTodo);
+todoList.addEventListener("click", DeleteAndComplete);
 RemoveAll.addEventListener("click",ClearAllTasks);
 RemoveCompleted.addEventListener("click",clearCompletedtasks);
 
@@ -55,7 +53,7 @@ function addTodo(event) {
   todoInput.value = "";
 }
 
-function DeleteCheck(e) {
+function DeleteAndComplete(e) {
   const item = e.target;
   if (item.classList[0] === "delete-btn") {
     const todo = item.parentElement;
@@ -74,41 +72,11 @@ function DeleteCheck(e) {
   }
 }
 
-function filterTodo(e) {
-  const todos = document.querySelectorAll(".todo");
-  todos.forEach(function (todo) {
-    switch (e.target.value) {
-      case "all":
-        todo.style.display = "flex";
-        break;
-      case "completed":
-        if (todo.classList.contains("completed")) {
-          todo.style.display = "flex";
-        } else {
-          todo.style.display = "none";
-        }
-        break;
-      case "incomplete":
-        if (!todo.classList.contains("completed")) {
-          todo.style.display = "flex";
-        } else {
-          todo.style.display = "none";
-        }
-        break;
-
-      default:
-        todo.style.display = "flex";
-        break;
-    }
-  });
-}
-
 
 function ClearAllTasks(e){
   const todos = document.querySelectorAll(".todo");
   todos.forEach(function(todo){
     todo.classList.add("Drop-Task");
-    // removeLocalTodos(todo);
     let ArrayStored;
     ArrayStored = JSON.parse(localStorage.getItem("todos"));
     let tempindex = ArrayStored.indexOf(todo.innerText); 
@@ -125,7 +93,6 @@ function ClearAllTasks(e){
 
 function clearCompletedtasks(todo){
   const todos = document.querySelectorAll(".todo");
-  // let CompltedArray[] = new Array;
   todos.forEach(function (todo){
     if (todo.classList.contains("completed")) {
         todo.classList.add("Drop-Task");
@@ -145,7 +112,6 @@ function clearCompletedtasks(todo){
 
 function saveLocalTodos(todo) {
   let todos;
-  // check if there are any items already present
   if (localStorage.getItem("todos") === null) {
     todos = [];
   } else {

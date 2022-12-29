@@ -10,6 +10,8 @@ body {
   font-family: 'Chivo Mono', monospace;
   min-height: 100vh;
 }
+
+ /* ************* Top part ************* */
 header {
   font-size: 1.5rem;
 }
@@ -41,7 +43,7 @@ form button:hover {
   color: white;
 }
 
-.RemoveTasks{
+.Delete-Task{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,7 +60,7 @@ form button:hover {
   cursor: pointer;
 }
 
-/* Styling the list container */
+/************** Styling the list container *******************/
 
 .todo-container {
   display: flex;
