@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: radial-gradient(circle, rgb(64, 93, 167), rgb(0, 106, 255), rgb(4, 0, 128));
+  color: white;
+  font-family: 'Chivo Mono', monospace;
+  min-height: 100vh;
+}
+
+ /* ************* Top part ************* */
+header {
+  font-size: 1.5rem;
+}
+header,
+form {
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form input,
+form button {
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: none;
+  background: white;
+  border-radius: 5px;
+}
+
+form button {
+  columns: #d88771;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+form button:hover {
+  background: #d88771;
+  color: white;
+}
+
+.Delete-Task{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Remove{
+  margin: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  background-color:#2b2d42;
+  border-radius: 5px;
+  padding: 4px;
+  color: azure;
+  cursor: pointer;
+}
+
+/************** Styling the list container *******************/
+
+.todo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-list {
+  min-width: 30%;
+  list-style: none;
+}
+
+.todo {
+  margin: 0.5rem;
+  background: white;
+  color: black;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  transition: all 0.5s ease;
+}
+
+.todo li {
+  flex: 1;
+}
+
+.delete-btn{
+  background: #2b2d42;
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  margin: 2px;
+  border-radius: 20px;  
+  font-size: 1rem;
+  display: none;
+}
+
+.checkbox{
+  margin-left: 5px;
+  display: none;
+}
+
+.todo:hover .delete-btn {
+  border: 4px solid black;
+  display: block; 
+}
+
+.todo:hover .checkbox{
+  display: inline-block;
+}
+
+.todo-item {
+  padding: 0rem 0.5rem;
+}
+
+.fa-trash,
+.fa-check {
+  pointer-events: none;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.incomplete{
+  text-decoration: none;
+  opacity: 1.0;
+}
+
+.Drop-Task {
+  transform: translateY(8rem) rotateX(-275deg);
+  opacity: 0;
+}
